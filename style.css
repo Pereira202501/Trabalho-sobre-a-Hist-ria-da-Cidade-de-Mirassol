@@ -14,6 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Cabeçalho */
@@ -26,7 +27,7 @@ header {
 }
 
 header h1 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   margin-bottom: 10px;
 }
 
@@ -37,6 +38,7 @@ nav ul {
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
+  padding: 10px 0;
 }
 
 nav a {
@@ -45,38 +47,46 @@ nav a {
   font-weight: bold;
   padding: 8px 12px;
   transition: background 0.3s;
+  border-radius: 5px;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
   background-color: #228B22;
-  border-radius: 5px;
+  outline: none;
 }
 
 /* Conteúdo principal */
 main {
-  padding: 30px 20px;
-  max-width: 900px;
-  margin: auto;
+  padding: 5vw 4vw;
+  max-width: 100%;
   flex: 1;
+  animation: fadeIn 0.6s ease-in;
 }
 
 main h2 {
   color: #006400;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
 }
 
 main p {
   margin-bottom: 20px;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
 }
 
 main img {
+  display: block;
   max-width: 100%;
   height: auto;
   margin-bottom: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+main img:hover {
+  transform: scale(1.02);
 }
 
 /* Rodapé */
@@ -88,26 +98,22 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Responsividade */
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade extra */
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 10px;
   }
 
-  main {
-    padding: 20px 10px;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  main h2 {
-    font-size: 1.3rem;
-  }
-
-  main p {
+  nav a {
+    text-align: center;
     font-size: 1rem;
   }
 }
