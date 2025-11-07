@@ -16,6 +16,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   font-size: 16px;
+  text-align: justify;
 }
 
 /* Cabeçalho */
@@ -23,7 +24,7 @@ header {
   background-color: #006400;
   color: white;
   padding: 20px 15px;
-  text-align: center;
+  text-align: center, justify;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
