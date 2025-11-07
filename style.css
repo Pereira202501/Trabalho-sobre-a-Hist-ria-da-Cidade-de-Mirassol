@@ -16,7 +16,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   font-size: 16px;
-  text-align: justify;
 }
 
 /* Cabeçalho */
@@ -77,6 +76,7 @@ main h2 {
 main p {
   margin-bottom: 18px;
   font-size: clamp(1rem, 3.5vw, 1.2rem);
+  text-align: justify;
 }
 
 main img {
